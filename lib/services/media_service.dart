@@ -1,7 +1,5 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:gal/gal.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MediaService {
@@ -10,9 +8,9 @@ class MediaService {
     final f = await ImagePicker().pickImage(
       source: ImageSource.camera, imageQuality: 90);
     if (f == null) return null;
-    // Save to gallery so it appears in Android Photos app
-    final bytes = await File(f.path).readAsBytes();
-    await ImageGallerySaver.saveImage(bytes, name: 'folio_${DateTime.now().millisecondsSinceEpoch}', isReturnImagePathOfIOS: false);
+    try {
+      await Gal.putImage(f.path, album: 'Folio');
+    } catch (_) {}
     return f.path;
   }
 
@@ -29,8 +27,9 @@ class MediaService {
       source: ImageSource.camera,
       maxDuration: const Duration(minutes: 10));
     if (f == null) return null;
-    // Save to gallery
-    await ImageGallerySaver.saveFile(f.path, name: 'folio_video_${DateTime.now().millisecondsSinceEpoch}');
+    try {
+      await Gal.putVideo(f.path, album: 'Folio');
+    } catch (_) {}
     return f.path;
   }
 
