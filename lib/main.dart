@@ -21,20 +21,21 @@ class FolioApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
     title: 'Folio',
     debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      useMaterial3: true,
-      scaffoldBackgroundColor: const Color(0xFFF5EFE6),
-      colorScheme: const ColorScheme.light(
-        primary: Color(0xFF2C1F14),
-        secondary: Color(0xFFC48B56),
-      ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFFF5EFE6),
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        foregroundColor: Color(0xFF2C1F14),
-      ),
-    ),
+theme: ThemeData(
+  useMaterial3: true,
+  scaffoldBackgroundColor: const Color(0xFFF5EFE6),
+  fontFamily: 'MarckScript',
+  colorScheme: const ColorScheme.light(
+    primary: Color(0xFF2C1F14),
+    secondary: Color(0xFFC48B56),
+  ),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Color(0xFFF5EFE6),
+    elevation: 0,
+    scrolledUnderElevation: 0,
+    foregroundColor: Color(0xFF2C1F14),
+  ),
+),
     home: const HomeScreen(),
   );
 }
