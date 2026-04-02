@@ -34,3 +34,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+    - family: MarckScript
+      fonts:
+        - asset: assets/fonts/MarckScript-Regular.ttf
